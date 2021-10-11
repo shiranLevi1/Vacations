@@ -1,0 +1,15 @@
+.navbar{
+    background-color: rgba(92, 90, 90, 0.733) !important;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    color: white;
+}
+
+.swal.input{
+    height: 20px;
+}
+
+.logout{
+    font-size: 140%;
+}

@@ -1,0 +1,13 @@
+.layout { 
+    min-height: 100%;
+}
+
+
+.layout>header {
+    grid-column: span 12;
+    border: 2px solid black;
+}
+
+.layout>main {
+    grid-column: span 12;   
+  } 

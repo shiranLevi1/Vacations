@@ -1,0 +1,113 @@
+CREATE DATABASE  IF NOT EXISTS `vacations` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `vacations`;
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+--
+-- Host: localhost    Database: vacations
+-- ------------------------------------------------------
+-- Server version	8.0.26
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `followers`
+--
+
+DROP TABLE IF EXISTS `followers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `followers` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `vacation_id` bigint NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `followers`
+--
+
+LOCK TABLES `followers` WRITE;
+/*!40000 ALTER TABLE `followers` DISABLE KEYS */;
+INSERT INTO `followers` VALUES (228,102,68),(230,100,67),(231,102,66),(233,100,68),(234,101,66),(236,101,68),(239,147,75),(241,147,68),(242,147,66),(243,100,73),(244,100,69),(245,100,75);
+/*!40000 ALTER TABLE `followers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `user_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `user_type` varchar(45) DEFAULT 'CUSTOMER',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_name_UNIQUE` (`user_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (98,'shiran','d7130bea9e7b7253b0527862d94280ee','','','','ADMIN'),(100,'sss','499c766e0b278f4401d444b49ad56605','','','','CUSTOMER'),(101,'aaa','4b402ef3ece946b114842a5f28e18973','','','','CUSTOMER'),(141,'www','1e393780f6b4b6ebf3c98a964b9d6133','','','','CUSTOMER');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vacation`
+--
+
+DROP TABLE IF EXISTS `vacation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vacation` (
+  `vacation_id` bigint NOT NULL AUTO_INCREMENT,
+  `description` varchar(600) NOT NULL,
+  `location` varchar(45) NOT NULL,
+  `image` varchar(10000) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `price` int NOT NULL,
+  PRIMARY KEY (`vacation_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vacation`
+--
+
+LOCK TABLES `vacation` WRITE;
+/*!40000 ALTER TABLE `vacation` DISABLE KEYS */;
+INSERT INTO `vacation` VALUES (66,'paris is very cold country','Paris','https://wallpaper.dog/large/5451466.jpg','2021-08-30','2021-09-01',500),(67,'new','Italy','https://www.bhmpics.com/download/rome_italy_2-1920x1080.jpg','2021-09-01','2021-09-08',899),(68,'new','Las Vegas','https://s1.1zoom.me/b5050/350/USA_Houses_Fountains_Las_Vegas_Night_564008_1920x1080.jpg','2021-08-26','2021-08-28',2000),(69,'new','Dubai','https://wallpapermemory.com/uploads/497/dubai-wallpaper-full-hd-1080p-485105.jpg','2021-08-18','2021-08-22',1500),(72,'new','New York','https://wallpaperaccess.com/full/123346.jpg','2021-08-17','2021-08-20',3000),(73,'new','Cyprus','https://wallpaperaccess.com/full/1427775.jpg','2021-08-24','2021-08-28',1000),(74,'new','Maldives','data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgVFRYYGBgYGBgYGhocHBwaGBgYGBgaGhgYGhocIS4lHh4rIRgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHhISHzYrJCs0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAKgBLAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAABAgADBAUGB//EAEAQAAECAQcKAwYGAQMFAAAAAAEAAhEDEiExUXGRBAVBYYGhscHR8BNS4QYiMpKi8RQVQlOC0mJDwuIWI2Nysv/EABoBAQEBAQEBAQAAAAAAAAAAAAEAAgMEBgX/xAAqEQACAgEDBAEEAQUAAAAAAAAAAQIREgMEURMhMUGRFEJhobEiMlJxgf/aAAwDAQACEQMRAD8A+iz1PEWAZSj4y74M55G/xVPEWDxERKKxLI2GUUEssolE05OJZGtssrGyqwAp4ocUKkbRKphKBYIqeIjEsjeSCgWNWQSiYSyMWORoMkgZJVCWVglldy7EEmUYIiWUnhHcuwqMUaEqhGnIEoRQUQCUpKJQgoyAqIwUgkhYJYJyFFEVkIJygVWQikVClJSA0VJyrJQLlURbOQnKouQnJoi0vSlyqLkC9VEWlyE9Ul6WcpImzEMoTCXWYNTAL1UjyqTNQl0RLLMGp2tVihyZoEqnEss4amDVlpDkzQJZOJdZgEYLOKNZM1eMj4qywTAIxQ5M0T9ak9UhqIYqkNsunKTyqwxNNKOw9ywShTCVVYYUZhR2LuXCVKYSqpDCiGLLSG2XCURnqqYjMKOxruWz1J6rmFLNKqRdy6epPVMFFUistL0IqhyESrELLyUpKrnFKXFVFZYUpSTihOKqKxyEpCUuKUvKaKxoIEJC8oF5TTCwkIFKXFISVUVjkpC5CBUISFmdoCsC4n5k8lgaxoDntYDS6c93wt92qPcFtlspyhgj+Gc6iJgaAJocDEtjVGisVVrm93p/n4N/TyXmjoIgBcCW9p3tdM8B3iCksJNAjXEMqm01Q1wpWz8flJALclMaAQXtAEXPaaSIn4G6B8W1K14tdrMvSa8tHWayKfw1yzlmV+7MyWdEAkeK0BsQaIwMaQRUKsassy/LGgluSmbA+9PZEe41woFdM4VioaTRPWJQXKOyWb0s4Tg2swjRUBrK8dlHtNlDXEHJiHTnCkOcINcGilrreMahFcHOuWysuQ7KMmZOa2AmueAaWma6a+ltJ5VlcXuJekdlpaft/s+qNYawNysMk4CMKNnBfPMr9p5doaJJknCc1jQQ6aWGM2ifEfCbIbimT+1uXvgWSchU00teIh5gP118FfUS4Low/wAv4PooabERFeWzPnHOD3sEpJyMx+lpIcPdJEIuOkCsL0pkpXyb/Rd4zUkcJtRdX8F04qTyq2yUp5d/om8GU8vHoq0GSLBK61PGVXgynk49FPDlPIe9irRZFvi60fE1qkycp5D3sUEnKeTj0VcSy/Jd4mtSfrVM2U8jlnlRlFMyTaLJ044gQ7tRcRzXJun61Jy57fxOljIfyBFt+5Frspgf+02MKDEwjrGKMkGUeTfPQL1iY/KdMkzY4jiCnny2mRPztglNE5xXs0lyhiswfLaZIj+TSoXyn7b8W/2UZ6seS+KUvWZz5T9p52t/sqjKyn7L8Wf2Sietpr2jb4jdahe25Yp7/wBp/wBP9kJz/wBt/wBPVNB19PlGyc21AubasRc7yPwHVAvd5H4Dqmi6+m/aN8W2pCQsAlXftPHyng5MZQw+B900/ZQ9XT5RsLkC9c/8W/8AZlflHVMyXJrZKNvYf9sVUPVhyjaXpS9ZjKf4v+R/9Uplf8X/ACP/AKqpDnHk4GdPFe4/h3PYwPY9jHMlIMIa2lpmUUgwGu4D3fs/nR5kh+Ig14MDXA1QIBiRdE1bFgBTRXFbOK9s0985KqR3soyyRe0tc+hwgYTgdhbSFTkYydhcWvcS6uc57jsL4neuREIxC19NHlnN7l1VI9D48kf9QfMBxRBYapRvzNK87EKRC10PyZeun5SPSCRjU8HvUUDkr/MN683RZuTNeRUSLohHRfP6Bz035X7O8clfogq3ZPKasT0XIGVPFT3/ADHmVY3OUqP1naGnkrpT9UGWl7s3nI3GsDE9Ehzdq3nqs7c8yo0MN4hwKtGfDpkgbnQ5Ix1V4Dp7eQ34C/EphkhGl2JTMz0w/E17dgI4xVzM4yLv1wvBHJZb1F5RqO30vTKDIv8AM7FKZJ+hzsV0Wua74XNNxBRMms9R+xe1XpnLcyU8ztyoeyW878Gf1XZLEpYlaq4RyltJem/k4TzL+d+DP6ql8tlAqe75G/1XoDJoGTW1rx4XweeWz1H4k1/083+Nym0/IOiP5jlFo+Q8l6Lw0PCC11ov0jktnrL738nnTneXGhh/ieqV2e5YfpZg7+y9GZIIGQFiFqw4F7XX9TZ5wZ/ldLGbI9UzPaB+mSHzEcl3jkrbAkORM8owCeppP0ZWhuV9xx/z92mR+r/inbn0n/SPzDoumchZYNyDshZ5Vlz0uDotPX9v9HOOff8AxuxCX8/GmTfi1b3ZubrxSOza3QSFJ6XBlx1+TD/1G3yP+nqofaNnklMB1Wz8sbad3RUOzO3zHBaT0eDlKO59NfAg9oZKx4/j6o/n8ja4XsKL8zN80En5KPNuCa0fyZf1S8pFgz3IeaF7XdEW53kT+tuBHELM/Mljgbx0VZzLaWnEdUVo8sHLcrykbxnSR87O9iP5jI+dm5c05msDdcSoc1HyDEKx0/TNKeqvMS0RRpVTXxKYOK9VHrTRaEVVSpTpKKGy3ahHWkhrKM29VFf4LFIhVwCYKKxohSKVEKIM5GOpLFGKiGigblAVJyBv8iOadFCduUyzfgfsJJGCM5CehpPyhU2vDNEnnmWb8TWO2Q4FbJLPrD8bC24g9FypyqlGxWHoRl6OsdxKPuz00ll8k6p4Go0LSADUY3U8F4d8k6sOxowSCWlGUh8IXFc3tE/DNrdr2j3Rk0PDXkcn9pJRtDnTtnWK6eTe1Um6hwgdo6jeuMttqLx3Osdxoy89jtFiBYlkc4ST6Q6F9WNW9ag0ERBBHdi4uMo+UdUoS8MyzUCxajJpSxZyZdEzFqEFeWqTEZGXomctQLFoLUC1azOb0TPMQmrRMQLE5GHo0ZpiExWvENBNyk1ORjpMqmJSxXOFg7wQmpUkZlplExSYriEJq1kjngebDuChee/RUCWF9yJltS/UxOGa5Li9OHLMZbsKCUOtWIZo1FxglLlREoT9HVSiD1DS03qErL4hRLk4h1DTO1qByzxRnIxLMvnoz1nn/ZScrEszT4iHiKjxEPEwViOZp8RAyionR7pwQoViGbLjK6Es8a+9iqiApOv2pxDNjuI7KpewGr7p/E7ilLglGXJMyuyJujgqXZM4UjlwW1w7gkPdHVJlSoxNlnNNBLTqWyQzxKsMZ0dsDi1K5gPYWeUyayJ2ocU/J1jq8Oj0mSe1ZqeMREYtp3LtZPnyTf1aQ4bqV84fEVgju1FktCowNsYHdSuMttGXhHphu5x92fVZLKGO+FzTq04VpzJr5lIZze2v3xr61xvXWyX2mLa3Obf77bqo7l5pbR+j1Q30fuR7YsNuKUsOpcfJfaEOES0OFrTxFu1dKRznJu/VA2GjfVvXmloSj5R6o7iEvDRZN1FSatAMalCFyxOn9PBlLCgWrTMChYrFk4xZlLUpatLmbUhZqV3MvSTM5ZelmLTMGsKeHrVZh6J88LtPe9EyoqhuVbI6+A3JpsdOyB5r6CkfNZMtnm2ArSz9MRTb6IaaxrMKbkXPo07Oyihchi/XSjO7qVYfTDTs5lGcawO7ak0GQ+zaiT3YqwSTTTtMeCLtiqDIdoorTR1qlroqBvcFUWXBaoDSqwBZimBRQqRYHaY8lJ21JG9TvuhVDkOXoRiq52qO7gnnG7aqgyDBQsCr8TuhAvVTLJDkBAnuKqc8m1JPHrEclrEy5ouL0pf3Sqy7UoBrh3eqgyY08696Bee/shDWkJ18E0DkxiT3FY5aRNYB2R68lsA1lKRq4oo1GbRzC8jQcOZU8QLoOY016d2xY5eRhUDs7JVR1jNMRkrCkThrFBG0LXI52e2szhrrhfXjFcwmmo71PEPZQ0mbtrweqyPPzRU57DqMW7ua7uTe0D4RM14tFBxFG5fNy6OnmmkpVzPhJBtBI5rlLQhLyjtDcTj4Z9akM8ybqyWnWKMQt7HhwiCCLQYhfKcnz08UPa07YHody6+Q53YSJj5jrIzSdVcMIryz2lf2s9mnvn4kj6AovNyOfHtocA6/3SMKtoXTyfPEm6ESWnWKMRRjBeaWjKPo9kNxpy9nRIQm6lGvBEQQRaKQouLO58vBjUdkR6pmyhvuIj0VTWXxveaBcrGMiImnQYtMcIL6B0fIKx2k2Ed6imnW1KkgRqhspxATB1hPe1VDY4dC3u8Jp0KsKFVPx2po6+8VUFjl1tGCBeO6UgcdEe9qgdf3oVQWWozu+6FXT3FCmqI72qobLZ/f2SiU24lIQbQm3qoLYTKC3lxUD+/slhdgiRr/APrkrsNsMdR3oxu570sO/eUYLY23b1BYxeO4JHPFuKj3i3klD7IlNGXIBf2KQgCbdyad3FI42QxpVQORIm1SB7glGxGmxIWENPZhyUBv4pA82KTzpENqKFSQ867DqVIi1I50bTvSi47lUORaYJXwKrIo0oiNkdvWKqLIoyjJWurFOiFPJYJaSLTCdDAc11IaoYdEHyUdPXEQKqNR1Gjjl5FERt9AiJTWFtlsladJO/jXiufKSM3SR/EwxpVR2jNMtDzafpgmn37obVlLiP1HhwUBFscTyRRtSOlI5e9kJrzACo+8NgNWxdTJs9NgA8OaYUuFLcIAjevNOhZuTz4dwXNwTOike0yTL6J0m8i5whtgeK6bM/ysP0HWQY/TQvm7JaBBBgRiLiFoGdpTz4ticVzejF+UdFrTj4kddj9l8TxKYvGgwGmkxq1Hcs88ajeoX2d7l6qPzMixwnGJhdDmjO1i4/dJrjDBHaDd0JgoLLJ0PsSjEx9COcUgPdFOBUnGOkXVcCqgyLHDTEbVBqgf5H1VQdsuEY4tRLzD05ihVA5ItnXY+iWbCqGFO8qmIjVsg3jFMXA2C+nkmgci4H1I0ohwthtA5qki0i6HoE0RfqAowJRQ5FzYasY80IaxsHqq5/8AicDwUY+8bD0RQ5Ict1m/uKJLYUnH7KskWHdzTUa8CqisIe3Qg1w+8SUHk3Xg80k7/LB3KpNA5FrxEacBzVc7RSMBwUnC04jmUPE7hDgE0ZbQSzvsIbe9yJeOz6qsgaAOKisYtFuJHIpWtGqPdiJOivYq6bNoCQbCWXb1AIad5R2gXhKGawbgoP8AQA4a9hMFAR3FGYbO9qBYbWjcnsVtBAOuFyLSNJ4KsM70ppo7gob4C9gItHepZnybYVEjTRGG8K0thZ3cixo0Q38YooVJo5L2NBMDRb7p3CJVT4eYb+YXVlW0kEbudSyS8kwiNLTGFbYE3RRR6I6lmKAt3wRnQ0Rx6oSjJvlMLo4KvxDoa0rLR2THn3YeiPiXqlz9YGKHia0Uatno5xt3cooz4113R3Kiddh6Ih3cF1o/OstaRVpuHNWteYQnQFwCzhx83eCdrjopxVQWXR7pgUs4JI2jlvTMOs4hVFY06ytWAu8pxVQLrDieqkSdDvm5KobLpp0jf2FA01k8eRgqfd00WxjFOGjQW3U76UFY+sbh0ioImwbtwQmWQj/IbyU0yFRAGqA3q7F3FMnZwHomma+7oo1CNf8AIcUY6jj6oskkKSBpj3tStjo7+lQv7PoErHGrrBNBfBcAbYm8HkkJNuPqUHC7u5VmuvipInItnQswASOfrSkDvqjHuhNGbYpOvknbGFKUDWht7xSA5cYV7/VKH60CaEpRRNl4MB2OaVz7QdqrY5M50bvRVDkSbYEGuNnqowgWJS+/vaqhssI0QcMOiqe2n1gjFCdqCqKxg62GPqqzEd8IKT7E046+SitCOdGFF1CBboIiLqCmcT2Uk+CisqlMnDiDQCDWOFBWKWyURNMDx2VwXSnxSOaDr1Vqo6R1GjjSklCqGIiqYiwLoy2TWNhwwIgsb8np+ID+PqstHrhNNHaD7RgUWvvKii2eEdrzaY7ExJt68FFFewfggebY7ERfDYoooAiGk7inG3lvUUUBaDaeSni9xKiiyhcmQvjWN4RDv/WOKiiitgL/APIbAkn648FFFUGTHvPJI59nGKiiRIHGyG4Ie9Zv6FRRCEgs4AcSlcBr3QQUSjIwp+6VwuUUSBIoKKKJkaVIjSN8OSiigQQ7Ui43IKKEWN2HVQlRRQmnIsjMoSIgQEY04ABahmY+f6T1UUXl1dSSfY/R2+3hPTUmifkx8/0+qhzMfPH+J0bVFFz60+Tr9NpcfyKMzHzfQeqhzIfOfk9alFFdafIdDT4FOZT5z8p6pfyE+f6EVFdafJ0W20+D/9k=','2021-08-18','2021-08-21',2500),(75,'new','Sweden','https://wallpaperaccess.com/full/4235918.jpg','2021-08-23','2021-08-24',2000),(92,'new','Istanbul','https://wallup.net/wp-content/uploads/2019/09/700472-sea-istanbul-city-beautiful-steamer-turkey.jpg','2021-08-31','2021-09-07',1000),(100,'new','Israel','https://www.steppestravel.com/app/uploads/2019/06/dome-of-the-rock-jerusalem-israel_2-1920x1080.jpg','2021-08-31','2021-09-07',3000);
+/*!40000 ALTER TABLE `vacation` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-09-09  2:43:37

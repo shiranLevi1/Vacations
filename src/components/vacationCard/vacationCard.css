@@ -1,0 +1,110 @@
+.vacationContainer{
+    display: inline-block;
+}
+
+.calendarIcon{
+    font-size: 20px;
+    position: relative;
+    bottom: 2px;
+}
+
+.dateText{
+    font-size: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h3{
+    padding-bottom: 3%;
+    cursor: pointer;
+}
+
+.vacationCard .thumbs-up{
+    position: relative;
+    left: 33%;
+    top: 5px;
+}
+
+.priceDiv{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-left: 11%;
+    text-align: start;
+}
+
+.vacationCard .price{
+    font-weight: bolder;
+    font-size: 20px;
+    padding-top: 1%;
+}
+
+.dolarSign{
+    position: relative;
+    bottom: 2px;
+    align-items: end !important;
+}
+
+.vacationCard{
+    
+    display: inline-block;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.548) !important;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 2%;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-button{
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(185, 210, 235); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(185, 210, 235); 
+}
+
+.description{
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-y: auto;
+    height: 95px;
+}
+
+.vacationCard .deleteVacation{
+    position: relative;
+    right: 38%;
+    cursor: pointer;
+    top: 5px;
+}
+
+.vacationCard .editVacation{
+    position: relative;
+    right: 33%;
+    cursor: pointer;
+    top: 5px;
+}
+
+.img{
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+
+.boldText{
+    font-weight: bold;
+}
+.followBtn{
+    cursor: pointer;
+}

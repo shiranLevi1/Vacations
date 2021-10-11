@@ -1,0 +1,69 @@
+p.description{
+    margin-top: 3%;
+    height: 130px;
+}
+
+.cardContainer{
+    margin-top: 3%;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.747) ;
+}
+
+.singleVacation .price{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.singleVacation .thumbs-up{
+    position: relative;
+    left: 85%;
+}
+
+.singleVacation .deleteVacation{
+    cursor: pointer;
+    position: absolute;
+    right: 4%;
+    top: 5%;
+    
+}
+
+.singleVacation .editVacation{
+    cursor: pointer;
+    position: absolute;
+    right: 8%;
+    top: 5%;
+}
+
+.singleVacation .boldDateText{
+    font-weight: bold;
+}
+
+.backBtn{
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+    left: 95%;
+    margin-top: 1.6%;
+    font-size: 25px;
+}
+
+.backSign{
+    color: white;
+    border-radius: 50%;
+    padding: 8px 10px 8px 10px;
+    margin-right: 1.5%; 
+    background-color: rgba(82, 82, 82, 0.692);
+}
+
+.singleVacation .followBtn{
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 8%;
+    top: 8%;
+}
+
+.amountOfFollowersText{
+    margin-left: 5px;
+    font-size: 15px;
+}

@@ -1,0 +1,17 @@
+.updateVacationBody{
+    margin: auto;
+    margin-top: 2%;
+    width: 30%;
+    padding: 2%;
+    padding-bottom: 1%;
+    text-align: center;
+     background-color: rgba(255, 255, 255, 0.726); 
+     border-radius: 5px;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.priceInput{
+    width: 30%;
+    display: inline-block;
+    margin-bottom: 3%;
+}
